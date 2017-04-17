@@ -1,12 +1,16 @@
-var apiKey = "6b9ea19f6f94aef92fedf0d3fdf78b9f";
-
+var apiKey = require('./../.env').apiKey;
 $(document).ready(function() {
-  $('#weather-location').click(function() {
+  console.log("I'm in weather interface")
+  $('#weatherLocation').click(function() {
     var city = $('#location').val();
     $('#location').val("");
-    $('.showWeather').text("The city you have chosen is " + city + ".");
-    $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + apiKey, function(response){
-      $('.showWeather').text("The humidity in " + city + " is " + response.main.humidity + "%");
-    });
-  });
+
+    $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + apiKey)
+     .then(function(response) {
+         $('.showWeather').text("The humidity in " + city + " is " + response.main.humidity + "%");
+      })
+      .fail(function(error){
+        $('.showWeather').text(error.responseJSON.message);
+      });
+   });
 });
