@@ -9,5 +9,6 @@ $(document).ready(function(){
     var vowelCheck = counter.vowelCheck(journalEntry);
     var teaser = counter.getTeaser(journalEntry);
     $('#output').append(wordCounter + ' ' + vowelCheck + ' ' + teaser + '...');
+    $('#journal-form').hide();
   });
 });

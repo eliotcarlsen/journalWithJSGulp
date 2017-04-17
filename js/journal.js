@@ -16,7 +16,7 @@ Journal.prototype.vowelCheck = function (string){
     } else {
       consonantCount += 1;
     }
-  };
+  }
   return vowelCout + ',' + consonantCount;
 };
 Journal.prototype.getTeaser = function (string){
@@ -27,11 +27,11 @@ Journal.prototype.getTeaser = function (string){
     var wordsArray = splitSentence[0].split(' ');
     for(var i=0; i < 8; i++){
       outputArray.push(wordsArray[i]);
-    };
+    }
     return outputArray.join(' ');
   } else {
     return splitSentence[0];
-  };
+  }
 };
 
 
